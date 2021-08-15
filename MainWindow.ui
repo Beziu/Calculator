@@ -554,18 +554,22 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
       </widget>
      </item>
      <item row="5" column="4">
-      <widget class="QPushButton" name="pushButton_18">
+      <widget class="QPushButton" name="btn_result">
        <property name="minimumSize">
         <size>
-         <width>100</width>
+         <width>120</width>
          <height>100</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>100</width>
+         <width>120</width>
          <height>100</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(0, 170, 0);
+font: 75 24pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="text">
         <string>=</string>
@@ -573,18 +577,25 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
       </widget>
      </item>
      <item row="5" column="3">
-      <widget class="QPushButton" name="pushButton_17">
+      <widget class="QPushButton" name="btn_addition">
        <property name="minimumSize">
         <size>
-         <width>100</width>
+         <width>120</width>
          <height>100</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>100</width>
+         <width>120</width>
          <height>100</height>
         </size>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(85, 170, 255);
+font: 75 24pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="text">
         <string>+</string>
@@ -592,18 +603,22 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
       </widget>
      </item>
      <item row="4" column="3">
-      <widget class="QPushButton" name="pushButton_16">
+      <widget class="QPushButton" name="btn_subtraction">
        <property name="minimumSize">
         <size>
-         <width>100</width>
+         <width>120</width>
          <height>100</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>100</width>
+         <width>120</width>
          <height>100</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(85, 170, 255);
+font: 75 24pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="text">
         <string>-</string>
@@ -611,18 +626,22 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
       </widget>
      </item>
      <item row="3" column="3">
-      <widget class="QPushButton" name="pushButton_11">
+      <widget class="QPushButton" name="btn_multiplied">
        <property name="minimumSize">
         <size>
-         <width>100</width>
+         <width>120</width>
          <height>100</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>100</width>
+         <width>120</width>
          <height>100</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(85, 170, 255);
+font: 75 24pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="text">
         <string>*</string>
@@ -630,18 +649,22 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
       </widget>
      </item>
      <item row="2" column="3">
-      <widget class="QPushButton" name="pushButton_15">
+      <widget class="QPushButton" name="btn_division">
        <property name="minimumSize">
         <size>
-         <width>100</width>
+         <width>120</width>
          <height>100</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>100</width>
+         <width>120</width>
          <height>100</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(85, 170, 255);
+font: 75 24pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="text">
         <string>/</string>
@@ -708,7 +731,7 @@ font: 75 24pt &quot;MS Shell Dlg 2&quot;;</string>
 font: 75 24pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="text">
-        <string>&lt;|</string>
+        <string>&amp;#171</string>
        </property>
       </widget>
      </item>
