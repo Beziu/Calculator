@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>860</width>
-    <height>1008</height>
+    <width>647</width>
+    <height>853</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <rect>
       <x>10</x>
       <y>15</y>
-      <width>786</width>
+      <width>631</width>
       <height>121</height>
      </rect>
     </property>
@@ -27,10 +27,10 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>25</x>
-      <y>175</y>
-      <width>786</width>
-      <height>746</height>
+      <x>15</x>
+      <y>155</y>
+      <width>626</width>
+      <height>641</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -145,7 +145,7 @@ font: 25pt &quot;MS Shell Dlg 2&quot;;</string>
       </widget>
      </item>
      <item row="5" column="2">
-      <widget class="QPushButton" name="pushButton_19">
+      <widget class="QPushButton" name="btn_coma">
        <property name="minimumSize">
         <size>
          <width>120</width>
@@ -743,8 +743,8 @@ font: 75 24pt &quot;MS Shell Dlg 2&quot;;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>860</width>
-     <height>31</height>
+     <width>647</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>
