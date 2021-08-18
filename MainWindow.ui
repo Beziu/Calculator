@@ -29,7 +29,7 @@
      <rect>
       <x>15</x>
       <y>155</y>
-      <width>626</width>
+      <width>630</width>
       <height>641</height>
      </rect>
     </property>
@@ -397,7 +397,7 @@ font: 24pt &quot;MS Shell Dlg 2&quot;;</string>
         </font>
        </property>
        <property name="text">
-        <string>3</string>
+        <string>1/x</string>
        </property>
       </widget>
      </item>
@@ -731,7 +731,7 @@ font: 75 24pt &quot;MS Shell Dlg 2&quot;;</string>
 font: 75 24pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="text">
-        <string>&amp;#171</string>
+        <string>&lt;&lt;</string>
        </property>
       </widget>
      </item>
