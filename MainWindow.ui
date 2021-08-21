@@ -23,6 +23,9 @@
       <height>121</height>
      </rect>
     </property>
+    <property name="digitCount">
+     <number>10</number>
+    </property>
    </widget>
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">

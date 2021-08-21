@@ -21,6 +21,7 @@ void MainWindow::init()
    actualValue = 0.0;
    newValue = 0.0;
    oldValue = 0.0;
+   setLcdValue(actualValue);
 }
 
 double MainWindow::getLcdValue()
@@ -31,14 +32,14 @@ double MainWindow::getLcdValue()
 void MainWindow::setLcdValue(QString &val)
 {
    ui->lcdNumber->display(val);
-   this->stringValue = QString::number(getLcdValue());
-   this->actualValue = getLcdValue();
+   stringValue = QString::number(getLcdValue());
+   actualValue = getLcdValue();
 }
 
 void MainWindow::setLcdValue(double &val)
 {
    ui->lcdNumber->display(val);
-
+   actualValue = val;
 }
 
 
@@ -50,14 +51,14 @@ void MainWindow::on_btn_addition_clicked()
    }
    else
    {
-      this->newValue = oldValue + actualValue;
+      newValue = oldValue + actualValue;
       setLcdValue(newValue);
    }
 }
 
 void MainWindow::on_btn_coma_clicked()
 {
-   stringValue += ",";
+   stringValue += ".";
    setLcdValue(stringValue);
 }
 
@@ -121,7 +122,8 @@ void MainWindow::on_btn_9_clicked()
    setLcdValue(stringValue);
 }
 
-
-
-
+void MainWindow::on_btn_clear_clicked()
+{
+   init();
+}
 
