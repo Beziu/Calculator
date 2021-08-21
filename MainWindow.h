@@ -39,6 +39,8 @@ private:
 
    void init();
    QString stringValue;
+   bool operatorPressed;
+   void operatorReady();
 
    double actualValue;
    double newValue;
