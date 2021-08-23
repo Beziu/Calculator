@@ -31,6 +31,7 @@ void MainWindow::operatorReady()
    {
       stringValue = nullptr;
       operatorPressed = false;
+      newValue = actualValue;
    }
 }
 
@@ -41,7 +42,8 @@ double MainWindow::getLcdValue()
 
 void MainWindow::setLcdValue(QString &val)
 {
-   ui->lcdNumber->display(val);
+   double tempValue = val.toDouble();
+   ui->lcdNumber->display(tempValue);
    stringValue = QString::number(getLcdValue(), 'g', 6);
    actualValue = getLcdValue();
 }
@@ -53,6 +55,125 @@ void MainWindow::setLcdValue(double &val)
    actualValue = getLcdValue();
 }
 
+void MainWindow::on_btn_coma_clicked()
+{
+   operatorReady();
+   stringValue += ".";
+   setLcdValue(stringValue);
+}
+
+void MainWindow::on_btn_0_clicked()
+{
+   operatorReady();
+   if (getLcdValue() == 0)
+      stringValue = "0";
+   else
+      stringValue += "0";
+   setLcdValue(stringValue);
+}
+
+void MainWindow::on_btn_1_clicked()
+{
+   operatorReady();
+   if (getLcdValue() == 0)
+      stringValue = "1";
+   else
+      stringValue += "1";
+   setLcdValue(stringValue);
+}
+
+void MainWindow::on_btn_2_clicked()
+{
+   operatorReady();
+   if (getLcdValue() == 0)
+      stringValue = "2";
+   else
+      stringValue += "2";
+   setLcdValue(stringValue);
+}
+
+void MainWindow::on_btn_3_clicked()
+{
+   operatorReady();
+   if (getLcdValue() == 0)
+      stringValue = "3";
+   else
+      stringValue += "3";
+   setLcdValue(stringValue);
+}
+
+void MainWindow::on_btn_4_clicked()
+{
+   operatorReady();
+   if (getLcdValue() == 0)
+      stringValue = "4";
+   else
+      stringValue += "4";
+   setLcdValue(stringValue);
+}
+
+void MainWindow::on_btn_5_clicked()
+{
+   operatorReady();
+   if (getLcdValue() == 0)
+      stringValue = "5";
+   else
+      stringValue += "5";
+   setLcdValue(stringValue);
+}
+
+void MainWindow::on_btn_6_clicked()
+{
+   operatorReady();
+   if (getLcdValue() == 0)
+      stringValue = "6";
+   else
+      stringValue += "6";
+   setLcdValue(stringValue);
+}
+
+void MainWindow::on_btn_7_clicked()
+{
+   operatorReady();
+   if (getLcdValue() == 0)
+      stringValue = "7";
+   else
+      stringValue += "7";
+   setLcdValue(stringValue);
+}
+
+void MainWindow::on_btn_8_clicked()
+{
+   operatorReady();
+   if (getLcdValue() == 0)
+      stringValue = "8";
+   else
+      stringValue += "8";
+   setLcdValue(stringValue);
+}
+
+void MainWindow::on_btn_9_clicked()
+{
+   operatorReady();
+   if (getLcdValue() == 0)
+      stringValue = "9";
+   else
+      stringValue += "9";
+   setLcdValue(stringValue);
+}
+
+void MainWindow::on_btn_clear_clicked()
+{
+   init();
+}
+
+void MainWindow::on_btn_result_clicked()
+{
+    if (operatorPressed)
+       setLcdValue(newValue);
+    else
+       setLcdValue(actualValue);
+}
 
 void MainWindow::on_btn_addition_clicked()
 {
@@ -69,85 +190,18 @@ void MainWindow::on_btn_addition_clicked()
    }
 }
 
-void MainWindow::on_btn_coma_clicked()
+void MainWindow::on_btn_subtraction_clicked()
 {
-   operatorReady();
-   stringValue += ".";
-   setLcdValue(stringValue);
-}
-
-void MainWindow::on_btn_0_clicked()
-{
-   operatorReady();
-   stringValue += "0";
-   setLcdValue(stringValue);
-}
-
-void MainWindow::on_btn_1_clicked()
-{
-   operatorReady();
-   stringValue += "1";
-   setLcdValue(stringValue);
-}
-
-void MainWindow::on_btn_2_clicked()
-{
-   operatorReady();
-   stringValue += "2";
-   setLcdValue(stringValue);
-}
-
-void MainWindow::on_btn_3_clicked()
-{
-   operatorReady();
-   stringValue += "3";
-   setLcdValue(stringValue);
-}
-
-void MainWindow::on_btn_4_clicked()
-{
-   operatorReady();
-   stringValue += "4";
-   setLcdValue(stringValue);
-}
-
-void MainWindow::on_btn_5_clicked()
-{
-   operatorReady();
-   stringValue += "5";
-   setLcdValue(stringValue);
-}
-
-void MainWindow::on_btn_6_clicked()
-{
-   operatorReady();
-   stringValue += "6";
-   setLcdValue(stringValue);
-}
-
-void MainWindow::on_btn_7_clicked()
-{
-   operatorReady();
-   stringValue += "7";
-   setLcdValue(stringValue);
-}
-
-void MainWindow::on_btn_8_clicked()
-{
-   operatorReady();
-   stringValue += "8";
-   setLcdValue(stringValue);
-}
-
-void MainWindow::on_btn_9_clicked()
-{
-   operatorReady();
-   stringValue += "9";
-   setLcdValue(stringValue);
-}
-
-void MainWindow::on_btn_clear_clicked()
-{
-   init();
+   operatorPressed = true;
+   if (oldValue == 0)
+   {
+      oldValue = actualValue;
+   }
+   else
+   {
+      newValue = oldValue - actualValue;
+      setLcdValue(newValue);
+      oldValue = actualValue;
+   }
 }
 
