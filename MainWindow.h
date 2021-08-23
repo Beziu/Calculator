@@ -43,7 +43,8 @@ private:
 
    void init();
    QString stringValue;
-   bool operatorPressed;
+   QString operatorPressed;
+   bool isPressed;
    void operatorReady();
 
    double actualValue;

@@ -17,7 +17,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::init()
 {
-   operatorPressed = false;
+   isPressed = false;
+   operatorPressed = nullptr;
    stringValue = nullptr;
    actualValue = 0.0;
    newValue = 0.0;
@@ -27,10 +28,10 @@ void MainWindow::init()
 
 void MainWindow::operatorReady()
 {
-   if (operatorPressed)
+   if (isPressed)
    {
       stringValue = nullptr;
-      operatorPressed = false;
+      isPressed = false;
       newValue = actualValue;
    }
 }
@@ -54,6 +55,57 @@ void MainWindow::setLcdValue(double &val)
    stringValue = QString::number(getLcdValue(), 'g', 6);
    actualValue = getLcdValue();
 }
+
+
+void MainWindow::on_btn_result_clicked()
+{
+   if (operatorPressed == "+")
+      newValue = oldValue + actualValue;
+   else if (operatorPressed == "-")
+      newValue = oldValue - actualValue;
+   else if (operatorPressed == "*")
+      newValue = oldValue * actualValue;
+   else if (operatorPressed == "/")
+      newValue = oldValue / actualValue;
+
+   if (isPressed)
+      setLcdValue(newValue);
+   else
+      setLcdValue(actualValue);
+}
+
+void MainWindow::on_btn_addition_clicked()
+{
+   isPressed = true;
+   operatorPressed = "+";
+   if (oldValue == 0)
+   {
+      oldValue = actualValue;
+   }
+   else
+   {
+      newValue = oldValue + actualValue;
+      setLcdValue(newValue);
+      oldValue = actualValue;
+   }
+}
+
+void MainWindow::on_btn_subtraction_clicked()
+{
+   isPressed = true;
+   operatorPressed = "-";
+   if (oldValue == 0)
+   {
+      oldValue = actualValue;
+   }
+   else
+   {
+      newValue = oldValue - actualValue;
+      setLcdValue(newValue);
+      oldValue = actualValue;
+   }
+}
+
 
 void MainWindow::on_btn_coma_clicked()
 {
@@ -167,41 +219,5 @@ void MainWindow::on_btn_clear_clicked()
    init();
 }
 
-void MainWindow::on_btn_result_clicked()
-{
-    if (operatorPressed)
-       setLcdValue(newValue);
-    else
-       setLcdValue(actualValue);
-}
 
-void MainWindow::on_btn_addition_clicked()
-{
-   operatorPressed = true;
-   if (oldValue == 0)
-   {
-      oldValue = actualValue;
-   }
-   else
-   {
-      newValue = oldValue + actualValue;
-      setLcdValue(newValue);
-      oldValue = actualValue;
-   }
-}
-
-void MainWindow::on_btn_subtraction_clicked()
-{
-   operatorPressed = true;
-   if (oldValue == 0)
-   {
-      oldValue = actualValue;
-   }
-   else
-   {
-      newValue = oldValue - actualValue;
-      setLcdValue(newValue);
-      oldValue = actualValue;
-   }
-}
 
