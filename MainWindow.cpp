@@ -26,6 +26,7 @@ void MainWindow::init()
    setLcdValue(actualValue);
 }
 
+
 void MainWindow::operatorReady()
 {
    if (isPressed)
@@ -36,10 +37,12 @@ void MainWindow::operatorReady()
    }
 }
 
+
 double MainWindow::getLcdValue()
 {
    return ui->lcdNumber->value();
 }
+
 
 void MainWindow::setLcdValue(QString &val)
 {
@@ -48,6 +51,7 @@ void MainWindow::setLcdValue(QString &val)
    stringValue = QString::number(getLcdValue(), 'g', 6);
    actualValue = getLcdValue();
 }
+
 
 void MainWindow::setLcdValue(double &val)
 {
@@ -59,7 +63,9 @@ void MainWindow::setLcdValue(double &val)
 
 void MainWindow::on_btn_result_clicked()
 {
-   if (operatorPressed == "+")
+   if (operatorPressed == nullptr)
+      newValue = actualValue;
+   else if (operatorPressed == "+")
       newValue = oldValue + actualValue;
    else if (operatorPressed == "-")
       newValue = oldValue - actualValue;
@@ -68,11 +74,10 @@ void MainWindow::on_btn_result_clicked()
    else if (operatorPressed == "/")
       newValue = oldValue / actualValue;
 
-   if (isPressed)
-      setLcdValue(newValue);
-   else
-      setLcdValue(actualValue);
+   operatorPressed = nullptr;
+   setLcdValue(newValue);
 }
+
 
 void MainWindow::on_btn_addition_clicked()
 {
@@ -90,6 +95,7 @@ void MainWindow::on_btn_addition_clicked()
    }
 }
 
+
 void MainWindow::on_btn_subtraction_clicked()
 {
    isPressed = true;
@@ -101,6 +107,40 @@ void MainWindow::on_btn_subtraction_clicked()
    else
    {
       newValue = oldValue - actualValue;
+      setLcdValue(newValue);
+      oldValue = actualValue;
+   }
+}
+
+
+void MainWindow::on_btn_multiplied_clicked()
+{
+   isPressed = true;
+   operatorPressed = "*";
+   if (oldValue == 0)
+   {
+      oldValue = actualValue;
+   }
+   else
+   {
+      newValue = oldValue * actualValue;
+      setLcdValue(newValue);
+      oldValue = actualValue;
+   }
+}
+
+
+void MainWindow::on_btn_division_clicked()
+{
+   isPressed = true;
+   operatorPressed = "/";
+   if (oldValue == 0)
+   {
+      oldValue = actualValue;
+   }
+   else
+   {
+      newValue = oldValue / actualValue;
       setLcdValue(newValue);
       oldValue = actualValue;
    }
@@ -218,6 +258,7 @@ void MainWindow::on_btn_clear_clicked()
 {
    init();
 }
+
 
 
 

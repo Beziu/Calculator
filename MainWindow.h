@@ -38,6 +38,10 @@ private slots:
 
    void on_btn_subtraction_clicked();
 
+   void on_btn_multiplied_clicked();
+
+   void on_btn_division_clicked();
+
 private:
    Ui::MainWindow *ui;
 
