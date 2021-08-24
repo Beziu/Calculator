@@ -149,6 +149,14 @@ void MainWindow::on_btn_division_clicked()
 }
 
 
+void MainWindow::on_btn_sqr_clicked()
+{
+   newValue = actualValue * actualValue;
+   setLcdValue(newValue);
+   newValue = actualValue;
+}
+
+
 void MainWindow::on_btn_coma_clicked()
 {
    operatorReady();
@@ -260,6 +268,9 @@ void MainWindow::on_btn_clear_clicked()
 {
    init();
 }
+
+
+
 
 
 

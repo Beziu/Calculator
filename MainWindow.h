@@ -42,6 +42,8 @@ private slots:
 
    void on_btn_division_clicked();
 
+   void on_btn_sqr_clicked();
+
 private:
    Ui::MainWindow *ui;
 
