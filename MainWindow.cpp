@@ -20,7 +20,6 @@ void MainWindow::init()
    isPressed = false;
    operatorPressed = nullptr;
    stringValue = nullptr;
-   memValue = 0.0;
    actualValue = 0.0;
    newValue = 0.0;
    oldValue = 0.0;
