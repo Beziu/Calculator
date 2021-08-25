@@ -44,6 +44,16 @@ private slots:
 
    void on_btn_sqr_clicked();
 
+   void on_btn_m_save_clicked();
+
+   void on_btn_m_clear_clicked();
+
+   void on_btn_m_read_clicked();
+
+   void on_btn_m_plus_clicked();
+
+   void on_btn_m_minus_clicked();
+
 private:
    Ui::MainWindow *ui;
 
@@ -53,6 +63,7 @@ private:
    bool isPressed;
    void operatorReady();
 
+   double memValue;
    double actualValue;
    double newValue;
    double oldValue;

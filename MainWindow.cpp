@@ -20,6 +20,7 @@ void MainWindow::init()
    isPressed = false;
    operatorPressed = nullptr;
    stringValue = nullptr;
+   memValue = 0.0;
    actualValue = 0.0;
    newValue = 0.0;
    oldValue = 0.0;
@@ -269,9 +270,28 @@ void MainWindow::on_btn_clear_clicked()
    init();
 }
 
+void MainWindow::on_btn_m_save_clicked()
+{
+    memValue = actualValue;
+}
 
+void MainWindow::on_btn_m_clear_clicked()
+{
+    memValue = 0.0;
+}
 
+void MainWindow::on_btn_m_read_clicked()
+{
+    setLcdValue(memValue);
+}
 
+void MainWindow::on_btn_m_plus_clicked()
+{
+    memValue += actualValue;
+}
 
-
+void MainWindow::on_btn_m_minus_clicked()
+{
+    memValue -= actualValue;
+}
 
