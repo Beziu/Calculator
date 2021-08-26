@@ -7,6 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
    ui->setupUi(this);
 
+   ui->lineEdit->setReadOnly(true);
+   ui->lineEdit->setAlignment(Qt::AlignRight);
+   ui->lineEdit->setMaxLength(15);
+
    init();
 }
 
@@ -43,21 +47,29 @@ double MainWindow::getLcdValue()
    return ui->lcdNumber->value();
 }
 
+QString MainWindow::getLineValue()
+{
+   return ui->lineEdit->text();
+}
+
 
 void MainWindow::setLcdValue(QString &val)
 {
-   double tempValue = val.toDouble();
+   //double tempValue = val.toDouble();
    ui->lcdNumber->display(val);
-   stringValue = QString::number(tempValue, 'g', 12);
-   actualValue = getLcdValue();
+   ui->lineEdit->setText(val);
+   //stringValue = QString::number(tempValue, 'g', 12);
+   stringValue = getLineValue();
+   actualValue = stringValue.toDouble();
 }
 
 
 void MainWindow::setLcdValue(double val)
 {
    ui->lcdNumber->display(val);
-   stringValue = QString::number(getLcdValue(), 'g', 12);
-   actualValue = getLcdValue();
+   ui->lineEdit->setText(QString::number(val));
+   stringValue = getLineValue();
+   actualValue = stringValue.toDouble();
 }
 
 

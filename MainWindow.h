@@ -27,33 +27,18 @@ private slots:
    void on_btn_8_clicked();
    void on_btn_9_clicked();
    void on_btn_coma_clicked();
-
    void on_btn_addition_clicked();
-
-
-
    void on_btn_clear_clicked();
-
    void on_btn_result_clicked();
-
    void on_btn_subtraction_clicked();
-
    void on_btn_multiplied_clicked();
-
    void on_btn_division_clicked();
-
    void on_btn_sqr_clicked();
-
    void on_btn_m_save_clicked();
-
    void on_btn_m_clear_clicked();
-
    void on_btn_m_read_clicked();
-
    void on_btn_m_plus_clicked();
-
    void on_btn_m_minus_clicked();
-
    void on_btn_remove_clicked();
 
 private:
@@ -71,6 +56,8 @@ private:
    double oldValue;
 
    double getLcdValue();
+   QString getLineValue();
+
    void setLcdValue(QString &val);
    void setLcdValue(double val);
 
