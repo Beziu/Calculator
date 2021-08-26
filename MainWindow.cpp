@@ -47,13 +47,13 @@ double MainWindow::getLcdValue()
 void MainWindow::setLcdValue(QString &val)
 {
    double tempValue = val.toDouble();
-   ui->lcdNumber->display(tempValue);
-   stringValue = QString::number(getLcdValue(), 'g', 12);
+   ui->lcdNumber->display(val);
+   stringValue = QString::number(tempValue, 'g', 12);
    actualValue = getLcdValue();
 }
 
 
-void MainWindow::setLcdValue(double &val)
+void MainWindow::setLcdValue(double val)
 {
    ui->lcdNumber->display(val);
    stringValue = QString::number(getLcdValue(), 'g', 12);
@@ -292,5 +292,13 @@ void MainWindow::on_btn_m_plus_clicked()
 void MainWindow::on_btn_m_minus_clicked()
 {
     memValue -= actualValue;
+}
+
+
+void MainWindow::on_btn_remove_clicked()
+{
+    stringValue = QString::number(getLcdValue());
+    stringValue = stringValue.remove(stringValue.length() - 1, 1);
+    setLcdValue(stringValue);
 }
 

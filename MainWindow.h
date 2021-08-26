@@ -54,6 +54,8 @@ private slots:
 
    void on_btn_m_minus_clicked();
 
+   void on_btn_remove_clicked();
+
 private:
    Ui::MainWindow *ui;
 
@@ -70,7 +72,7 @@ private:
 
    double getLcdValue();
    void setLcdValue(QString &val);
-   void setLcdValue(double &val);
+   void setLcdValue(double val);
 
 };
 #endif // MAINWINDOW_H
