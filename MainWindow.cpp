@@ -30,7 +30,6 @@ void MainWindow::init()
    setLcdValue(actualValue);
 }
 
-
 void MainWindow::operatorReady()
 {
    if (isPressed)
@@ -89,7 +88,6 @@ void MainWindow::on_btn_result_clicked()
    operatorPressed = nullptr;
    oldValue = 0.0;
    setLcdValue(newValue);
-   actualValue = newValue;
 }
 
 
