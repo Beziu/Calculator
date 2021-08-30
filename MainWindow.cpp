@@ -30,6 +30,7 @@ void MainWindow::init()
    setLcdValue(actualValue);
 }
 
+// Function resets a stringValue when any from operands buttons was pressed
 void MainWindow::operatorReady()
 {
    if (isPressed)
@@ -41,6 +42,10 @@ void MainWindow::operatorReady()
 }
 
 
+/*
+ * Getters and setters for LCD
+ */
+
 double MainWindow::getLcdValue()
 {
    return ui->lcdNumber->value();
@@ -51,26 +56,26 @@ QString MainWindow::getLineValue()
    return ui->lineEdit->text();
 }
 
-
 void MainWindow::setLcdValue(QString &val)
 {
-   //double tempValue = val.toDouble();
    ui->lcdNumber->display(val);
    ui->lineEdit->setText(val);
-   //stringValue = QString::number(tempValue, 'g', 12);
    stringValue = getLineValue();
    actualValue = stringValue.toDouble();
 }
 
-
 void MainWindow::setLcdValue(double val)
 {
-   ui->lcdNumber->display(val);
+   ui->lcdNumber->display(QString::number(val));
    ui->lineEdit->setText(QString::number(val));
    stringValue = getLineValue();
    actualValue = stringValue.toDouble();
 }
 
+
+/*
+ * Operand buttons
+ */
 
 void MainWindow::on_btn_result_clicked()
 {
@@ -90,7 +95,6 @@ void MainWindow::on_btn_result_clicked()
    setLcdValue(newValue);
 }
 
-
 void MainWindow::on_btn_addition_clicked()
 {
    isPressed = true;
@@ -106,7 +110,6 @@ void MainWindow::on_btn_addition_clicked()
       oldValue = actualValue;
    }
 }
-
 
 void MainWindow::on_btn_subtraction_clicked()
 {
@@ -124,7 +127,6 @@ void MainWindow::on_btn_subtraction_clicked()
    }
 }
 
-
 void MainWindow::on_btn_multiplied_clicked()
 {
    isPressed = true;
@@ -140,7 +142,6 @@ void MainWindow::on_btn_multiplied_clicked()
       oldValue = actualValue;
    }
 }
-
 
 void MainWindow::on_btn_division_clicked()
 {
@@ -158,7 +159,6 @@ void MainWindow::on_btn_division_clicked()
    }
 }
 
-
 void MainWindow::on_btn_sqr_clicked()
 {
    newValue = actualValue * actualValue;
@@ -167,17 +167,42 @@ void MainWindow::on_btn_sqr_clicked()
 }
 
 
+/*
+ * Remove last char button and CLEAR button
+ */
+
+void MainWindow::on_btn_remove_clicked()
+{
+   stringValue = stringValue.remove(stringValue.length() - 1, 1);
+   setLcdValue(stringValue);
+}
+
+void MainWindow::on_btn_clear_clicked()
+{
+   init();
+}
+
+
+/*
+ * Numbers 0 - 9 buttons and point button
+ */
+
 void MainWindow::on_btn_coma_clicked()
 {
    operatorReady();
-   stringValue += ".";
+   if (ui->lineEdit->text().contains("."))
+      return;
+   if (getLineValue() == nullptr)
+      stringValue = "0.";
+   else
+      stringValue += ".";
    setLcdValue(stringValue);
 }
 
 void MainWindow::on_btn_0_clicked()
 {
    operatorReady();
-   if (getLcdValue() == 0)
+   if (ui->lineEdit->text().at(0) == '0')
       stringValue = "0";
    else
       stringValue += "0";
@@ -187,7 +212,7 @@ void MainWindow::on_btn_0_clicked()
 void MainWindow::on_btn_1_clicked()
 {
    operatorReady();
-   if (getLcdValue() == 0)
+   if (ui->lineEdit->text().at(0) == '0')
       stringValue = "1";
    else
       stringValue += "1";
@@ -197,7 +222,7 @@ void MainWindow::on_btn_1_clicked()
 void MainWindow::on_btn_2_clicked()
 {
    operatorReady();
-   if (getLcdValue() == 0)
+   if (ui->lineEdit->text().at(0) == '0')
       stringValue = "2";
    else
       stringValue += "2";
@@ -207,7 +232,7 @@ void MainWindow::on_btn_2_clicked()
 void MainWindow::on_btn_3_clicked()
 {
    operatorReady();
-   if (getLcdValue() == 0)
+   if (ui->lineEdit->text().at(0) == '0')
       stringValue = "3";
    else
       stringValue += "3";
@@ -217,7 +242,7 @@ void MainWindow::on_btn_3_clicked()
 void MainWindow::on_btn_4_clicked()
 {
    operatorReady();
-   if (getLcdValue() == 0)
+   if (ui->lineEdit->text().at(0) == '0')
       stringValue = "4";
    else
       stringValue += "4";
@@ -227,7 +252,7 @@ void MainWindow::on_btn_4_clicked()
 void MainWindow::on_btn_5_clicked()
 {
    operatorReady();
-   if (getLcdValue() == 0)
+   if (ui->lineEdit->text().at(0) == '0')
       stringValue = "5";
    else
       stringValue += "5";
@@ -237,7 +262,7 @@ void MainWindow::on_btn_5_clicked()
 void MainWindow::on_btn_6_clicked()
 {
    operatorReady();
-   if (getLcdValue() == 0)
+   if (ui->lineEdit->text().at(0) == '0')
       stringValue = "6";
    else
       stringValue += "6";
@@ -247,7 +272,7 @@ void MainWindow::on_btn_6_clicked()
 void MainWindow::on_btn_7_clicked()
 {
    operatorReady();
-   if (getLcdValue() == 0)
+   if (ui->lineEdit->text().at(0) == '0')
       stringValue = "7";
    else
       stringValue += "7";
@@ -257,7 +282,7 @@ void MainWindow::on_btn_7_clicked()
 void MainWindow::on_btn_8_clicked()
 {
    operatorReady();
-   if (getLcdValue() == 0)
+   if (ui->lineEdit->text().at(0) == '0')
       stringValue = "8";
    else
       stringValue += "8";
@@ -267,48 +292,40 @@ void MainWindow::on_btn_8_clicked()
 void MainWindow::on_btn_9_clicked()
 {
    operatorReady();
-   if (getLcdValue() == 0)
+   if (ui->lineEdit->text().at(0) == '0')
       stringValue = "9";
    else
       stringValue += "9";
    setLcdValue(stringValue);
 }
 
-void MainWindow::on_btn_clear_clicked()
-{
-   init();
-}
+
+/*
+ * Memory operations buttons
+ */
 
 void MainWindow::on_btn_m_save_clicked()
 {
-    memValue = actualValue;
+   memValue = actualValue;
 }
 
 void MainWindow::on_btn_m_clear_clicked()
 {
-    memValue = 0.0;
+   memValue = 0.0;
 }
 
 void MainWindow::on_btn_m_read_clicked()
 {
-    setLcdValue(memValue);
+   setLcdValue(memValue);
 }
 
 void MainWindow::on_btn_m_plus_clicked()
 {
-    memValue += actualValue;
+   memValue += actualValue;
 }
 
 void MainWindow::on_btn_m_minus_clicked()
 {
-    memValue -= actualValue;
-}
-
-
-void MainWindow::on_btn_remove_clicked()
-{
-    stringValue = QString::number(getLcdValue());
-    stringValue = stringValue.remove(stringValue.length() - 1, 1);
-    setLcdValue(stringValue);
+   memValue -= actualValue;
 }
 
