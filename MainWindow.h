@@ -41,6 +41,9 @@ private slots:
    void on_btn_m_minus_clicked();
    void on_btn_remove_clicked();
 
+
+   void on_btn_denominator_clicked();
+
 private:
    Ui::MainWindow *ui;
 

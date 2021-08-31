@@ -93,7 +93,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>5</x>
@@ -843,7 +843,7 @@ font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
       </widget>
      </item>
      <item row="1" column="1" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-      <widget class="QPushButton" name="btn___2">
+      <widget class="QPushButton" name="btn_denominator">
        <property name="minimumSize">
         <size>
          <width>75</width>
@@ -858,7 +858,7 @@ font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>25</pointsize>
+         <pointsize>20</pointsize>
         </font>
        </property>
        <property name="autoFillBackground">
@@ -946,7 +946,7 @@ font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>25</pointsize>
+         <pointsize>20</pointsize>
         </font>
        </property>
        <property name="autoFillBackground">

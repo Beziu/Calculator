@@ -166,6 +166,13 @@ void MainWindow::on_btn_sqr_clicked()
    newValue = actualValue;
 }
 
+void MainWindow::on_btn_denominator_clicked()
+{
+   newValue = 1 / actualValue;
+   setLcdValue(newValue);
+   newValue = actualValue;
+}
+
 
 /*
  * Remove last char button and CLEAR button
