@@ -19,6 +19,7 @@ MainWindow::~MainWindow()
    delete ui;
 }
 
+// Function init()
 void MainWindow::init()
 {
    isPressed = false;
