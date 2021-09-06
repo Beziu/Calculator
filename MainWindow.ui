@@ -858,11 +858,19 @@ font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="font">
         <font>
+         <family>MS Shell Dlg 2</family>
          <pointsize>20</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(12, 255, 255);
+font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="text">
         <string>1/x</string>
@@ -946,11 +954,19 @@ font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="font">
         <font>
+         <family>MS Shell Dlg 2</family>
          <pointsize>20</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(12, 255, 255);
+font: 20pt &quot;MS Shell Dlg 2&quot;;</string>
        </property>
        <property name="text">
         <string>x²</string>
