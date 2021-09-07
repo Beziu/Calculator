@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -63,6 +64,8 @@ private:
 
    void setLcdValue(QString &val);
    void setLcdValue(double val);
+
+   bool eventFilter(QObject* sender, QEvent* event) override;
 
 };
 #endif // MAINWINDOW_H
